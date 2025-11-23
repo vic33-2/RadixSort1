@@ -9,7 +9,7 @@ public class RadixSort {
 
     public static void main(String[] args) {
 
-        String archivoEntrada = "numeros.txt";
+        String archivoEntrada = "numeros1.txt";
         String archivoSalida = "numeros_ordenados_radix.txt";
 
         System.out.println("Leyendo archivo: " + archivoEntrada);
