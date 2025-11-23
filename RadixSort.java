@@ -57,6 +57,30 @@ public class RadixSort {
         }
         return max;
     }
+ public static void radixSort(int[] arr) {
+        int max = obtenerMaximo(arr);
+
+        for (int exp = 1; max / exp > 0; exp *= 10) {
+            countingSortPorDigito(arr, exp);
+            System.out.print("Ordenando por dígito (" + exp + "): ");
+            imprimirArray(arr); 
+        }
+    }
+
+
+
+
+
+
+public static void countingSortPorDigito(int[] arr, int exp) {
+        int[] salida = new int[arr.length];
+        int[] conteo = new int[10];
+
+        for (int num : arr) {
+            int indice = (num / exp) % 10;
+            conteo[indice]++;
+        }
+
 
 
     public static void guardarArchivo(String nombreArchivo, int[] datos) {
@@ -76,4 +100,3 @@ public class RadixSort {
         System.out.println();
     }
 }
-//.
