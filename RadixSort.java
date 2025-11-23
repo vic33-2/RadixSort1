@@ -80,7 +80,20 @@ public static void countingSortPorDigito(int[] arr, int exp) {
             int indice = (num / exp) % 10;
             conteo[indice]++;
         }
- 
+for (int i = 1; i < 10; i++) {
+            conteo[i] += conteo[i - 1];
+        }
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            int indice = (arr[i] / exp) % 10;
+            salida[conteo[indice] - 1] = arr[i];
+            conteo[indice]--;
+        }
+
+
+        System.arraycopy(salida, 0, arr, 0, arr.length);
+
+    }
 
     public static void guardarArchivo(String nombreArchivo, int[] datos) {
         try (FileWriter fw = new FileWriter(nombreArchivo)) {
